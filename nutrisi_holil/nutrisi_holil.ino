@@ -31,9 +31,9 @@ void loop() {
     tds = analogRead(tdsport);
     outputValueTDS = (0.3417*tds)+281.08;
 
-    int turbisensor = analogRead(A3);// read the input on analog pin 0:
-    float turbidity = turbisensor * (5.0 / 1024.0); // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
-    Serial.print(turbidity); // print out the value you read:
+    //int turbisensor = analogRead(A3);// read the input on analog pin 0:
+    //float turbidity = turbisensor * (5.0 / 1024.0); // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
+    //Serial.print(turbidity); // print out the value you read:
 
     static unsigned long samplingTime = millis();
     static unsigned long printTime = millis();
@@ -50,28 +50,31 @@ void loop() {
     {
           //Serial.print("Voltage:");
           //Serial.print(voltage,2);
-          Serial.print(" pH value: ");
+          //Serial.print(" pH: ");
           Serial.print(pHValue,2);
           Serial.print(",");
+          //Serial.print("Kelembaban :");
+          Serial.print(humidity_1);
+          Serial.print(",");
+          
+          //pembacaan nilai pembacaan data suhu
+          //Serial.print("Suhu :");
+          Serial.print(celcius_1); //format derajat celcius
+          Serial.print(",");
+      
+          //Serial.print("Tds :");
+          Serial.println(outputValueTDS); //format derajat celcius
+          //Serial.println(" ppm,");
+
           printTime=millis();
     }
 
-    Serial.print("Kelembaban:");
-    Serial.print(humidity_1);
-    Serial.print("t,");
     
-    //pembacaan nilai pembacaan data suhu
-    Serial.print("Suhu :");
-    Serial.print(celcius_1); //format derajat celcius
-    Serial.print(" 'C, ");
+    //Serial.print("turbidity :");
+    //Serial.print(outputValueTDS); //format derajat celcius
+    //Serial.println(",");
 
-    Serial.print("Tds :");
-    Serial.print(outputValueTDS); //format derajat celcius
-    Serial.print(" ppm,");
-
-    Serial.print("turbidity :");
-    Serial.print(outputValueTDS); //format derajat celcius
-    Serial.println(",");
+    //delay(1000);
 
 }
 

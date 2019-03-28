@@ -10,7 +10,7 @@ terminal output ->  A0 arduino
 terminal GND -> GND arduino
 */
 
-#define analogInPin  A0  // Analog input pin 
+#define analogInPin  A1  // Analog input pin 
 
 //variable
 int sensorValue; //adc value
